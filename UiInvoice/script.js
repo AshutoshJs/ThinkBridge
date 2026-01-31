@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoade', function() {
         .then(data => {
             let html = '<ul>';
             data.items.forEach(item => {
-                html += `<li>${item.name} - $${item.prce}</li>`;
+                html += `<li>${item.name} - $${item.price}</li>`;
             });
             html += '</ul>';
             document.getElementById('invoice-container').innerHTML = html;

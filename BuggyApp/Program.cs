@@ -1,5 +1,6 @@
 
 using BuggyApp.InvoiceDbContext;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 
 namespace BuggyApp
 {
@@ -14,6 +15,15 @@ namespace BuggyApp
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(policy =>
+                    policy
+                        .AllowAnyOrigin()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod()
+                );
+            });
             builder.Services.AddSwaggerGen();
             var app = builder.Build();
 
